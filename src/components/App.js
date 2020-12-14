@@ -72,14 +72,4 @@ class App extends Component {
 	'/search' contains or matches '/' so it would render that too unless we specify 'exact'
 */
 
-const Home = () => (
-  <div>
-    <h2>Home</h2>
-  </div>
-);
-const Search = () => (
-  <div>
-    <h2>Search</h2>
-  </div>
-);
 export default App;
