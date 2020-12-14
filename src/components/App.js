@@ -1,60 +1,66 @@
-import React, { Component } from 'react';
-import MyBooks from './MyBooks';
-import Search from './Search';
-import { Route } from 'react-router-dom';
-import * as BooksAPI from '../BooksAPI';
+import React, { Component } from "react";
+import MyBooks from "./MyBooks";
+import Search from "./Search";
+import { HashRouter, Route } from "react-router-dom";
+import * as BooksAPI from "../BooksAPI";
 
 class App extends Component {
-	state = {
-		books: [],
-		searchResults: [],
-		searching: 'not'
-	};
-	componentDidMount = () => {
-		BooksAPI.getAll().then((books) => {
-			this.setState({ books });
-		});
-	};
-	componentDidUpdate = () => {
-		BooksAPI.getAll().then((books) => {
-			this.setState({ books });
-		});
-	};
-	bookUpdate = (book, shelf) => {
-		BooksAPI.update(book, shelf);
-	};
+  state = {
+    books: [],
+    searchResults: [],
+    searching: "not",
+  };
+  componentDidMount = () => {
+    BooksAPI.getAll().then((books) => {
+      this.setState({ books });
+    });
+  };
+  componentDidUpdate = () => {
+    BooksAPI.getAll().then((books) => {
+      this.setState({ books });
+    });
+  };
+  bookUpdate = (book, shelf) => {
+    BooksAPI.update(book, shelf);
+  };
 
-	bookSearch = (query) => {
-		BooksAPI.search(query).then((books) => {
-			if (!books.error) {
-				this.setState({ searchResults: books, searching: 'found' });
-			} else {
-				this.setState({ searchResults: [], searching: 'notfound' });
-			}
-		});
-	};
+  bookSearch = (query) => {
+    BooksAPI.search(query).then((books) => {
+      if (!books.error) {
+        this.setState({ searchResults: books, searching: "found" });
+        console.log(books);
+      } else {
+        this.setState({ searchResults: [], searching: "notfound" });
+      }
+    });
+  };
 
-	render() {
-		return (
-			<div className="ui container">
-				<Route
-					path="/myreads"
-					render={() => <MyBooks updateBooks={this.bookUpdate} books={this.state.books} />}
-				/>
-				<Route
-					path="/search"
-					render={() => (
-						<Search
-							searching={this.state.searching}
-							updateBooks={this.bookUpdate}
-							bookSearch={this.bookSearch}
-							books={this.state.searchResults}
-						/>
-					)}
-				/>
-			</div>
-		);
-	}
+  render() {
+    return (
+      <HashRouter basename="/">
+        <div className="ui container">
+          <Route
+            path="/"
+            exact
+            render={() => (
+              <MyBooks updateBooks={this.bookUpdate} books={this.state.books} />
+            )}
+          />
+          <Route
+            path="/search"
+            render={() => (
+              <Search
+                searching={this.state.searching}
+                updateBooks={this.bookUpdate}
+                bookSearch={this.bookSearch}
+                books={this.state.searchResults}
+              />
+            )}
+          />
+        </div>
+      </HashRouter>
+    );
+  }
 }
 /*
 	ROUTE EXPLANATION
@@ -65,4 +71,15 @@ class App extends Component {
 	so for instance root would be '/', and another link '/search', techincally
 	'/search' contains or matches '/' so it would render that too unless we specify 'exact'
 */
+
+const Home = () => (
+  <div>
+    <h2>Home</h2>
+  </div>
+);
+const Search = () => (
+  <div>
+    <h2>Search</h2>
+  </div>
+);
 export default App;
