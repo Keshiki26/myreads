@@ -38,8 +38,7 @@ class App extends Component {
 		return (
 			<div className="ui container">
 				<Route
-					exact
-					path="/"
+					path="/myreads"
 					render={() => <MyBooks updateBooks={this.bookUpdate} books={this.state.books} />}
 				/>
 				<Route

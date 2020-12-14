@@ -37,8 +37,6 @@
 	position: relative;
 }
 .circle-book-menu {
-	width: 40px;
-	height: 40px;
 	border-radius: 50%;
 	background: rgb(227, 61, 61);
 	position: absolute;

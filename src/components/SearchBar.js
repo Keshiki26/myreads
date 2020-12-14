@@ -8,14 +8,13 @@ export default class SearchBar extends Component {
 	};
 	handleSubmit = (e) => {
 		e.preventDefault();
-		console.log(this.props.term);
 		this.props.bookSearch();
 	};
 	render() {
 		return (
 			<div className="ui segment inverted ">
 				<form className="ui form" onSubmit={this.handleSubmit}>
-					<label for="searchTerm">
+					<label htmlFor="searchTerm">
 						<b>Book Search</b>
 					</label>
 					<div className="ui fluid icon input">

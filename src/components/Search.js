@@ -22,7 +22,7 @@ export default class Search extends Component {
 		return (
 			<div className="ui segment">
 				<div className="ui">
-					<Link to="/" className="active red white  item">
+					<Link to="/myreads" className="active red white  item">
 						<Button animated inverted color="red">
 							<Button.Content hidden>
 								<Icon name="arrow left" />My Books

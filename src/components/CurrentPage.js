@@ -37,13 +37,13 @@ class CurrentPage extends Component {
 				<div className="shelf ui">
 					{this.props.books.map((book, index) => {
 						return (
-							<div className="shelf-book ui">
+							<div className="shelf-book ui" key={index}>
 								<div className="book-settings">
 									<img className="" src={book.imageLinks.thumbnail} alt={book.title} />
-									<Icon name="big" className="circle-book-menu" options={options} trigger={<div />}>
+									<Icon className="circle-book-menu big" options={options} trigger={<div />}>
 										<Dropdown
 											icon="caret down"
-											trigger={<a />}
+											trigger={<div />}
 											book={book}
 											onChange={this.handleChange}
 											defaultValue={options[this.props.dv].value}
@@ -52,7 +52,7 @@ class CurrentPage extends Component {
 										/>
 									</Icon>
 								</div>
-								<p key={index}>{book.title}</p>
+								<p>{book.title}</p>
 							</div>
 						);
 					})}

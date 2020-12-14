@@ -15,17 +15,13 @@ export default class myBooks extends Component {
 			this.setState({ wantToRead: this.props.books.filter((book) => book.shelf === 'wantToRead') });
 			this.setState({ read: this.props.books.filter((book) => book.shelf === 'read') });
 		}
-
-		console.log(`currently reading: ${this.state.currentlyReading.length}`);
-		console.log(`want to read: ${this.state.wantToRead.length}`);
-		console.log(`read: ${this.state.read.length}`);
 	}
 
 	render() {
 		return (
 			<div className="ui inverted segment">
 				<div className="ui inverted secondary menu">
-					<Link to="/" className="active red item">
+					<Link to="/myreads" className="active red item">
 						<i className="large book icon" />
 						MyBooks
 					</Link>
