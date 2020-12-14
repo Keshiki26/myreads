@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import MyBooks from "./MyBooks";
 import Search from "./Search";
-import { HashRouter, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 import * as BooksAPI from "../BooksAPI";
 
 class App extends Component {
@@ -41,28 +41,26 @@ class App extends Component {
 
   render() {
     return (
-      <HashRouter basename="/">
-        <div className="ui container">
-          <Route
-            path="/"
-            exact
-            render={() => (
-              <MyBooks updateBooks={this.bookUpdate} books={this.state.books} />
-            )}
-          />
-          <Route
-            path="/search"
-            render={() => (
-              <Search
-                searching={this.state.searching}
-                updateBooks={this.bookUpdate}
-                bookSearch={this.bookSearch}
-                books={this.state.searchResults}
-              />
-            )}
-          />
-        </div>
-      </HashRouter>
+      <div className="ui container">
+        <Route
+          path="/"
+          exact
+          render={() => (
+            <MyBooks updateBooks={this.bookUpdate} books={this.state.books} />
+          )}
+        />
+        <Route
+          path="/search"
+          render={() => (
+            <Search
+              searching={this.state.searching}
+              updateBooks={this.bookUpdate}
+              bookSearch={this.bookSearch}
+              books={this.state.searchResults}
+            />
+          )}
+        />
+      </div>
     );
   }
 }
