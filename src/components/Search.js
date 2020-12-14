@@ -8,6 +8,9 @@ export default class Search extends Component {
   state = { searchTerm: "", books: [] };
   controlSearchChange = (searchTerm) => {
     this.setState({ searchTerm });
+    if (this.state.searchTerm === "") {
+      this.props.bookSearch("");
+    }
   };
   submitBookSearch = () => {
     this.props.bookSearch(this.state.searchTerm);
@@ -42,8 +45,8 @@ export default class Search extends Component {
             searchChange={this.controlSearchChange}
           />
           {this.props.searching === "notfound" && (
-            <div class="ui error message">
-              <div class="header">No Books Found!</div>
+            <div className="ui error message">
+              <div className="header">No Books Found!</div>
               <p>Please try a different search term.</p>
             </div>
           )}

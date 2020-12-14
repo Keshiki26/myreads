@@ -68,3 +68,9 @@ a {
   margin-bottom: -2px;
   padding: 0;
 }
+.titleauthor {
+  padding: 0;
+}
+.titleauthor p {
+  margin: 0;
+}

@@ -61,9 +61,9 @@ class CurrentPage extends Component {
                     />
                   </Icon>
                 </div>
-                <div class="content">
-                  <a class="header">{book?.title}</a>
-                  <div class="meta authors">
+                <div className="content titleauthor">
+                  <p className="header">{book?.title}</p>
+                  <div className="meta authors">
                     {bookAuthor.map((author, index) => {
                       return <span key={index}>{author}</span>;
                     })}

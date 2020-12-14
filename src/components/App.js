@@ -25,14 +25,18 @@ class App extends Component {
   };
 
   bookSearch = (query) => {
-    BooksAPI.search(query).then((books) => {
-      if (!books.error) {
-        this.setState({ searchResults: books, searching: "found" });
-        console.log(books);
-      } else {
-        this.setState({ searchResults: [], searching: "notfound" });
-      }
-    });
+    if (query !== "") {
+      BooksAPI.search(query).then((books) => {
+        if (!books.error) {
+          this.setState({ searchResults: books, searching: "found" });
+          console.log(books);
+        } else {
+          this.setState({ searchResults: [], searching: "notfound" });
+        }
+      });
+    } else {
+      this.setState({ searching: "not" });
+    }
   };
 
   render() {
