@@ -39,7 +39,7 @@ export default class Search extends Component {
 						term={this.state.searchTerm}
 						searchChange={this.controlSearchChange}
 					/>
-					{this.props.searching == 'notfound' && (
+					{this.props.searching === 'notfound' && (
 						<div class="ui error message">
 							<div class="header">No Books Found!</div>
 							<p>Please try a different search term.</p>

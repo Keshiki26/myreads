@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import * as BooksAPI from '../BooksAPI';
 
 export default class SearchBar extends Component {
 	handleChange = (e) => {
