@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./CurrentPage.css";
 import { Dropdown, Icon } from "semantic-ui-react";
 
 const options = [
