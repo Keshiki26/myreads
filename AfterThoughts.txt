@@ -1,0 +1,33 @@
+After thoughts:
+Stuff used to build this app - 
+    Semantic UI (css + react components for styling)
+    React Router:
+        -Two Page management
+        -HashRouter, Link and Route for links management
+    BooksAPI:
+        -So that data stays even after refresh
+    Github Pages for deployment
+
+Components -
+    CurrentPage(Badly Named):
+        -Essentially takes in an array of book object and title (and some callback functions etc)
+        -I used this to display the three stages of books in the main page and I used it to display
+         it in the search bar as well
+        -So basically main page looked like this <Component /> * 3 to display everything. While the search bar had one
+        -This was great because I didn't have to recode the stages of books 3 times or recode a new display for the search bar
+        -I could just reuse this again and again
+        -The only changes would be props, callback functions so information can be shared between parent/child/siblings
+    Other Components - same as above, CurrentPage was just the main component that basically rendered mostly all UI needed for this page.
+
+Good things I did -
+    Spent a good amount of time designing the page and thinking about the logic of information control between parents, siblings, and children
+    Spent a good amount of time trying to make sure to have controlled react elements
+    Started from the bottom up - got the basics right first and the static look of the page then worked to the dynamic aspects
+    One page at a time - worked on one page - finished and then worked on the next
+
+
+Improvments - 
+    Could have styled more myself - gotten better at CSS too or learned more about Semantic UI
+    Studied React Router a little bit more
+    
+

@@ -1,69 +1,69 @@
-import React, { Component } from "react";
-import MyBooks from "./MyBooks";
-import Search from "./Search";
-import "./App.css";
-import { Route } from "react-router-dom";
-import * as BooksAPI from "../BooksAPI";
+import React, { Component } from 'react';
+import MyBooks from './MyBooks';
+import Search from './Search';
+import './App.css';
+import { Route } from 'react-router-dom';
+import * as BooksAPI from '../BooksAPI';
 
 class App extends Component {
-  state = {
-    books: [],
-    searchResults: [],
-    searching: "not",
-  };
-  componentDidMount = () => {
-    BooksAPI.getAll().then((books) => {
-      this.setState({ books });
-    });
-  };
-  componentDidUpdate = () => {
-    BooksAPI.getAll().then((books) => {
-      this.setState({ books });
-    });
-  };
-  bookUpdate = (book, shelf) => {
-    BooksAPI.update(book, shelf);
-  };
+	state = {
+		books: [],
+		searchResults: [],
+		searching: 'not',
+	};
+	componentDidMount = () => {
+		BooksAPI.getAll().then((books) => {
+			this.setState({ books });
+		});
+	};
+	componentDidUpdate = () => {
+		BooksAPI.getAll().then((books) => {
+			this.setState({ books });
+		});
+	};
+	bookUpdate = (book, shelf) => {
+		BooksAPI.update(book, shelf);
+	};
 
-  bookSearch = (query) => {
-    if (query !== "") {
-      BooksAPI.search(query).then((books) => {
-        if (!books.error) {
-          this.setState({ searchResults: books, searching: "found" });
-          console.log(books);
-        } else {
-          this.setState({ searchResults: [], searching: "notfound" });
-        }
-      });
-    } else {
-      this.setState({ searching: "not" });
-    }
-  };
+	bookSearch = (query) => {
+		if (query !== '') {
+			BooksAPI.search(query).then((books) => {
+				if (!books.error) {
+					this.setState({ searchResults: books, searching: 'found' });
+					console.log(books);
+				} else {
+					this.setState({ searchResults: [], searching: 'notfound' });
+				}
+			});
+		} else {
+			this.setState({ searching: 'not' });
+		}
+	};
 
-  render() {
-    return (
-      <div className="ui container">
-        <Route
-          path="/"
-          exact
-          render={() => (
-            <MyBooks updateBooks={this.bookUpdate} books={this.state.books} />
-          )}
-        />
-        <Route
-          path="/search"
-          render={() => (
-            <Search
-              searching={this.state.searching}
-              updateBooks={this.bookUpdate}
-              bookSearch={this.bookSearch}
-              books={this.state.searchResults}
-            />
-          )}
-        />
-      </div>
-    );
-  }
+	render() {
+		return (
+			<div className="ui container">
+				<Route
+					path="/"
+					exact
+					render={() => (
+						<MyBooks updateBooks={this.bookUpdate} books={this.state.books} />
+					)}
+				/>
+				<Route
+					path="/search"
+					render={() => (
+						<Search
+							searching={this.state.searching}
+							updateBooks={this.bookUpdate}
+							bookSearch={this.bookSearch}
+							books={this.state.searchResults}
+						/>
+					)}
+				/>
+			</div>
+		);
+	}
 }
 /*
 	ROUTE EXPLANATION
