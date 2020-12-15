@@ -5,7 +5,7 @@ import { HashRouter } from "react-router-dom";
 
 // creating a history object that listens and keeps track of URL changes
 ReactDOM.render(
-  <HashRouter basename="/">
+  <HashRouter>
     <App />
   </HashRouter>,
   document.querySelector("#root")
