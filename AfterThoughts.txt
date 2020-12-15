@@ -29,5 +29,7 @@ Good things I did -
 Improvments - 
     Could have styled more myself - gotten better at CSS too or learned more about Semantic UI
     Studied React Router a little bit more
+    Information management:
+        For example an object from App being used 3 Child down has to be passed again and again through the 3 child components - is there a better way of doing this?
     
 
